@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio sesión</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main>
+        <section>
+            <div class="cards-container">
+                <div class="welcome-card">
+                    <h2>Welcome back!</h2>
+                    <p>We're happy to see you again, log in and keep conect with everyone that waits for you!<p>
+                    <p>Have fun!</p>
+                </div>
+
+                <div class="login-card">
+                    <div class="login-card-content">
+                        <h2 class="h2-login">Login</h2>
+                        <p>Singin your account</p>
+                        <form method="post" id="form">
+                            <input type="text" name="text" id="username" required placeholder="Username">
+
+                            <input type="password" name="password" id="password" required placeholder="Password">
+                            
+                            
+                            <label for="checkbox">Show password
+                                <input type="checkbox" name="checkbox" id="checkbox">
+                            </label>
+
+                            <button type="submit">Sing in</button>
+                            <p class="p-singup">Don't have account? <b>Sing up</b></p>
+                        </form>
+                        <div id="result"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="/js/script.js" defer></script>
+</body>
+</html>

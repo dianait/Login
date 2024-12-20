@@ -1,0 +1,184 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 1.6rem;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: "Inter", sans-serif;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(145deg, rgb(21, 165, 255) 23%, rgb(255, 86, 165) 78%);
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+main {
+    width: 100vw;
+    height: 100vh;
+}
+
+    main section {
+        width: 95rem;
+        height: 55rem;
+        margin: 20vh auto 0;
+        background: none;
+    }
+
+.cards-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border-radius: 30px;
+    border: 3px solid rgb(152, 240, 255);
+    box-shadow: -10px -10px 0px -5px rgba(134, 174, 179, 0.788);
+    background-color: rgba(241, 241, 241, 0.836);
+}
+
+    .welcome-card {
+        width: 40rem;
+        height: 40rem;
+        border-radius: 30px;
+        position: absolute;
+        top: 8rem;
+        left: 8rem;
+        background: linear-gradient(120deg, #006eff,#fa67ff, #2fffff);
+        box-shadow: -20px -20px 2px 0px rgba(187, 153, 179, 0.719);
+        color: white;
+        
+    }
+
+        h2 {
+            font-size: 4rem;
+            text-align: center;
+            padding-top: 9rem;
+        }
+
+        p {
+            width: 30rem;
+            margin: 0 auto;
+            padding-top: 2rem;
+            text-align: center;
+        }
+
+    .login-card {
+        width: 40rem;
+        height: 42rem;
+        position: absolute;
+        top: 6rem;
+        right: 8rem;
+        background: rgba(64, 229, 235, 0.24);
+        border-radius: 30px;
+        box-shadow: 20px 20px 4px -6px rgba(0, 0, 0, 0.233);
+        border: 2px solid rgba(73, 243, 255, 0.527);
+    }
+        
+        .login-card-content {
+            width: 30rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            margin: 0 auto 0;
+        }
+
+        .h2-login {
+            padding-top: 4rem;
+            text-shadow: 0 5px 5px #868686;
+        }
+
+        label {
+            text-align: right;
+            font-size: 1.3rem;
+            color: grey;
+        }
+
+        input[type="checkbox"] {
+            margin-top: 1rem;
+            border: 1px solid rgba(128, 128, 128, 0.562);
+            border-radius: 0;
+            width: 2rem;
+            
+        }
+
+        input {
+            margin-top: 2rem;
+            padding: .8rem;
+            padding-left: 2rem;
+            background-color: rgb(232, 252, 255);
+            border: 1px solid rgb(152, 240, 255);
+            border-radius: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            margin-top: 2rem;
+        }
+
+        .p-singup {
+            font-size: 1.3rem;
+            color: rgb(90, 90, 90);
+        }
+
+            .p-singup b {
+                font-size: 1.3rem;
+            }
+
+        button {
+            width: 12rem;
+            background: linear-gradient(90deg, rgb(21, 165, 255) 23%, rgb(19, 208, 255) 78%);
+            padding: 1rem 0 1rem 0;
+            border: 1px solid rgb(82, 82, 82);
+            border-radius: 20px;
+            color: white;
+            font-size: 1.3rem;
+            margin: 3rem auto 0;
+        }
+
+            button:hover {
+                background:linear-gradient(90deg, rgb(255, 72, 133) 23%, rgb(255, 114, 232) 78%);
+                cursor: pointer;
+            }
+
+            #result {
+                background-color: #b3e2ee;
+                border: 2px solid rgba(73, 243, 255, 0.527);
+                border-radius: 30px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                color: #333;
+                width: 40rem;
+                height: 42rem;
+                position: absolute;
+                right: -2px;
+                top: -2px;
+                z-index: 1;
+                display: none;
+                overflow: auto;
+                --scrollbar-width: 10px; 
+                --scrollbar-height: 10px; --scrollbar-border-thickness: 0px; --scrollbar-thumb-color: #03A9F454; --scrollbar-border-radius: 100px; --scrollbar-corner-color: #FFFFFF00; --scrollbar-border-color: #FFFFFF00; --scrollbar-track-color: #A1A1AA00; --scrollbar-button-color: #3F3F46A8; } #result::-webkit-scrollbar { width: var(--scrollbar-width, 20px);
+                height: var(--scrollbar-height, 20px);
+                }#result::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb-color, #3B82F6);
+                border-radius: var(--scrollbar-border-radius, 4px);
+                }
+            
+            
+            #result p {
+                font-size: 1.6rem;
+                line-height: 1.8;
+                margin-bottom: 1rem;
+            }
+            
+            #result p strong {
+                color: #02007c;
+                font-weight: bold;
+            }
+    
+        .welcome-message {
+            font-weight: bold;
+            border-bottom: 3px double;
+        }
