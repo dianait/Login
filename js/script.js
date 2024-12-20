@@ -31,39 +31,36 @@ document.addEventListener('DOMContentLoaded', () => {
     const usersTimeLine = [
         {
             username:"ana123",
-            timeline:"Estoy estudiando programación 🖥️"
+            timeline:"I'm coding! 🖥️"
         },
         {
             username:"pedro456",
-            timeline:"Aprendiendo Python 💻"
+            timeline:"I'm learning Python 💻"
         },
         {
             username:"luis789",
-            timeline:"¡Nuevo proyecto de trabajo! 🚀"
+            timeline:"New project at work! 🚀"
         },
         {
             username: "maria001",
-            timeline: "Viajando por el mundo 🌍✈️"
+            timeline: "Travelling around the world 🌍✈️"
         },
         {
             username: "jorge321",
-            timeline: "¡Empecé a leer mi primer libro de ciencia ficción! 📚"
+            timeline: "Just started to read my new fiction book! 📚"
         },
         {
             username: "lucia456",
-            timeline: "Preparándome para mi primer maratón 🏃‍♀️"
+            timeline: "Preparing my next marathon 🏃‍♀️"
         }
     ]
 
     //Función que itera en nombres y contraseñas, que cuando sean iguales, o sea, coincidan, pueda acceder al feed. Además convierte mayus y minus para evitar errores. Una vez hace el bucle y no encuentra similitudes, sale y hace false, mostrando un mensaje en la siguiente función.
+    //He cambiado el método para que sea más sencillo, igualmente itera cada elemento y compara usuario y contraseña
     function userValidation(username, password) {
-        for(let i = 0; i < usersDatabase.length; i++) {
-            if(usersDatabase[i].username.toLowerCase() === username.toLowerCase() && 
-               usersDatabase[i].password === password) {
-                return true;
-            } 
-        }
-        return false;
+        return usersDatabase.some(
+            user => user.username.toLowerCase() === username.toLowerCase() && user.password === password
+        )
     }
 
     
@@ -71,8 +68,10 @@ document.addEventListener('DOMContentLoaded', () => {
     //Función que una vez ha validado nombre y contraseña, muestra el feed en un div final que mientras no se accede, permanece bloqueado.
     function logIn(username, password) {
         const resultDiv = document.getElementById('result')
+        const loginCard = document.querySelector('.login-card-content')
 
         if(userValidation(username, password)) {
+            loginCard.style.display = 'none'
             resultDiv.style.display = 'block'
 
             //Después la variable busca en el objeto del feed el nombre igual al que se introduce (arrow fn) y primero se verá el post de la persona que accede.
@@ -80,14 +79,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
             //Aquí se modifica el contenido del html con el post que ha escrito el usuario.
             let htmlContent = `
-            <p class="welcome-message">Welcome back, ${username}! 🎉</p>
-            <p>Mi post: "${userTimeline.timeline}"</p>`
+            <h2 class="welcome-message">Welcome back, ${username}! 🎉</h2>
+            <p>My post: "${userTimeline.timeline}"</p>`
 
             //El bucle forEach itera cada objeto del array de la timeline (arrow fn). Y lo que hará el if será fijarse en la condición para que cuando itere y encuentre el mismo nombre de quien inició sesión evite mostrarse de nuevo su post, porque ya aparece primero. Y += va añadiendo.
             usersTimeLine.forEach(user => {
                 if(user.username.toLowerCase() !== username.toLowerCase()) {
                 htmlContent += `
-                    <p><strong>${user.username}</strong>: ${user.timeline}</p>`;
+                    <p><strong>${user.username}</strong>: ${user.timeline}</p>`
                 }
             })
             
@@ -96,21 +95,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
         } else {
             //Por el contrario si la primera función devuelve false, añadiendo contenido al html.
-            resultDiv.innerHTML = `
-            <p>❌ Usuario o contraseña incorrectos. Inténtalo de nuevo.</p>`;
-            resultDiv.style.display = 'block';
+            resultDiv.innerHTML = `<p>❌ Try again, username or password is wrong.</p>`
+            resultDiv.style.display = 'block'
         }
     }
 
-    //Esto "escucha" al submit y hace un evento que será la acción del usuario cuando envía los datos, y así aparezca el feed.
-    document.getElementById('form').addEventListener('submit', function(event) {
+    //Esto hace que muestre-oculte la contraseña
+    document.getElementById('checkbox').addEventListener('change', function() {
+        const passwordInput = document.getElementById('password')
+        //Esto es un operador ternario, es un if/else acortado. Verifica si el checkbox está marcado, osea true o false, ? entonces, text es el valor true, : sino, password es false.
+        passwordInput.type = this.checked ? 'text' : 'password'
+    })
 
-        //Evitamos el refresco de la página con esto
-        event.preventDefault()
-        
-        //Y esto capta los datos que el usuario introduce en los inputs
-        const username = document.getElementById('username').value
-        const password = document.getElementById('password').value
+    //Esto "escucha" al submit y hace un evento que será la acción del usuario cuando envía los datos, y así aparezca el feed.
+    document.getElementById('loginButton').addEventListener('click', function() {
+
+        //Y esto capta los datos que el usuario introduce en los inputs, con le método trim para eliminar espacios en blanco.
+        const username = document.getElementById('username').value.trim()
+        const password = document.getElementById('password').value.trim()
+
+        //Como hemos cambiado el form por un div, para no dar error en Github, es necesario añadir esta validación para cuando haya algún fallo y aparezca en el div final.
+        if (!username || !password) {
+            const resultDiv = document.getElementById('result')
+            resultDiv.innerHTML = `<p class="error-message">❌ Username or password is wrong, try again!.</p>`
+            resultDiv.style.display = 'block'
+            return
+        }
 
         //Finalmente llamamos a la función que le pasa los valores del inicio
         logIn(username, password)

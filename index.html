@@ -20,23 +20,24 @@
                 <div class="login-card">
                     <div class="login-card-content">
                         <h2 class="h2-login">Login</h2>
-                        <p>Singin your account</p>
-                        <form method="post" id="form">
-                            <input type="text" name="text" id="username" required placeholder="Username">
+                        <p>Sign in your account</p>
+                        <div class="login-form">
+                            <input type="text" name="text" id="username" placeholder="Username">
 
-                            <input type="password" name="password" id="password" required placeholder="Password">
+                            <input type="password" name="password" id="password" placeholder="Password">
                             
                             
                             <label for="checkbox">Show password
                                 <input type="checkbox" name="checkbox" id="checkbox">
                             </label>
 
-                            <button type="submit">Sing in</button>
-                            <p class="p-singup">Don't have account? <b>Sing up</b></p>
-                        </form>
-                        <div id="result"></div>
+                            <button type="button" id="loginButton">Sign in</button>
+                            <p class="p-signup">Don't have account? <b>Sign up</b></p>
+                        </div>
                     </div>
                 </div>
+                
+                <div id="result"></div>
             </div>
         </section>
     </main>

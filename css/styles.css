@@ -34,6 +34,7 @@ main {
     width: 100%;
     height: 100%;
     position: relative;
+    overflow: hidden;
     border-radius: 30px;
     border: 3px solid rgb(152, 240, 255);
     box-shadow: -10px -10px 0px -5px rgba(134, 174, 179, 0.788);
@@ -114,18 +115,18 @@ main {
             border-radius: 20px;
         }
 
-        form {
+        .login-form {
             display: flex;
             flex-direction: column;
             margin-top: 2rem;
         }
 
-        .p-singup {
+        .p-signup {
             font-size: 1.3rem;
             color: rgb(90, 90, 90);
         }
 
-            .p-singup b {
+            .p-signup b {
                 font-size: 1.3rem;
             }
 
@@ -154,30 +155,43 @@ main {
                 width: 40rem;
                 height: 42rem;
                 position: absolute;
-                right: -2px;
-                top: -2px;
+                right: 8rem;
+                top: 6rem;
                 z-index: 1;
                 display: none;
                 overflow: auto;
                 --scrollbar-width: 10px; 
-                --scrollbar-height: 10px; --scrollbar-border-thickness: 0px; --scrollbar-thumb-color: #03A9F454; --scrollbar-border-radius: 100px; --scrollbar-corner-color: #FFFFFF00; --scrollbar-border-color: #FFFFFF00; --scrollbar-track-color: #A1A1AA00; --scrollbar-button-color: #3F3F46A8; } #result::-webkit-scrollbar { width: var(--scrollbar-width, 20px);
+                --scrollbar-height: 10px; --scrollbar-thumb-color: #03A9F454; 
+            } 
+            
+            #result::-webkit-scrollbar { 
+                width: var(--scrollbar-width, 20px);
                 height: var(--scrollbar-height, 20px);
-                }#result::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb-color, #3B82F6);
-                border-radius: var(--scrollbar-border-radius, 4px);
-                }
-            
-            
-            #result p {
-                font-size: 1.6rem;
-                line-height: 1.8;
-                margin-bottom: 1rem;
+
             }
             
+            #result::-webkit-scrollbar-thumb { 
+                background: var(--scrollbar-thumb-color, #3B82F6);
+                border-radius: var(--scrollbar-border-radius, 4px);
+            }
+            
+           #result h2 {
+                text-align: center;
+                font-size: 2.4rem;
+                font-weight: bold;
+                padding-top: 2rem;
+            }
+
+            #result p {
+                margin-bottom: 1rem;
+                line-height: 1.8;
+            }
+
             #result p strong {
-                color: #02007c;
+                color: #02007c; 
                 font-weight: bold;
             }
-    
+        
         .welcome-message {
             font-weight: bold;
             border-bottom: 3px double;
